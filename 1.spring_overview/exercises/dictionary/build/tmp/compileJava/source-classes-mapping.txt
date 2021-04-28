@@ -1,0 +1,10 @@
+controllers/HomeController.java
+ controllers.HomeController
+repository/Repository.java
+ repository.Repository
+service/Service.java
+ service.Service
+service/DictionaryService.java
+ service.DictionaryService
+repository/DictionaryRepository.java
+ repository.DictionaryRepository
