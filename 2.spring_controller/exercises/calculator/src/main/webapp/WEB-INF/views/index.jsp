@@ -12,7 +12,7 @@
     <title>Calculator </title>
 </head>
 <body>
-<form action="/calculator" method="post" style="border: 1px">
+<form action="/calculator" method="post" style="border: 1px; width: 500px">
     <fieldset>
         <legend>Calculator</legend>
         <table>

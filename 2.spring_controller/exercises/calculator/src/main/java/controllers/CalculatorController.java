@@ -15,9 +15,9 @@ public class CalculatorController {
     }
 
     @PostMapping("/calculator")
-    public String result(@RequestParam double firstNumber,
-                         @RequestParam double secondNumber,
-                         @RequestParam String operator, Model model
+    public String result(@RequestParam(name = "firstNumber", required = false, defaultValue = "xx") double firstNumber,
+                         @RequestParam(name = "secondNumber", required = false, defaultValue = "xx") double secondNumber,
+                         @RequestParam(name = "operator", required = false, defaultValue = "xx") String operator, Model model
     ) {
         Double result;
         if (operator.equals("+")) {
