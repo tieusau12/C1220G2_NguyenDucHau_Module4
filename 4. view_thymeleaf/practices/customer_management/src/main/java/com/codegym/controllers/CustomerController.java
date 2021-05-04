@@ -33,7 +33,7 @@ public class CustomerController {
     public String save(Customer customer) {
         customer.setId((int) (Math.random() * 10000));
         customerService.save(customer);
-        return "redirect:";
+        return "redirect:/customer";
     }
 
     @GetMapping("/customer/{id}/edit")
@@ -45,7 +45,7 @@ public class CustomerController {
     @PostMapping("/update")
     public String update(Customer customer) {
         customerService.update(customer.getId(), customer);
-        return "redirect:";
+        return "redirect:/customer";
     }
 
     @GetMapping("/customer/{id}/delete")
@@ -57,7 +57,7 @@ public class CustomerController {
     public String delete(Customer customer, RedirectAttributes redirect) {
         customerService.remove(customer.getId());
         redirect.addFlashAttribute("success", "Removed customer successfully!");
-        return "redirect:";
+        return "redirect:/customer";
     }
     @GetMapping("/customer/{id}/view")
     public String view(@PathVariable int id, Model model) {
