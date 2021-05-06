@@ -1,17 +1,19 @@
 package com.codegym.cms.repository;
 
 import com.codegym.cms.model.Customer;
+import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import javax.transaction.Transactional;
 import java.util.List;
 
+@Transactional
 public class CustomerRepository implements ICustomerRepository {
     @PersistenceContext
     private EntityManager em;
-
 
     @Override
     public List<Customer> findAll() {

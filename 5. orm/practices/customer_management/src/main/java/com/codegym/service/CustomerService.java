@@ -1,11 +1,7 @@
 package com.codegym.service;
 
 import com.codegym.model.Customer;
-import org.hibernate.HibernateException;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 
-import javax.persistence.EntityManager;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,8 +11,6 @@ import static java.util.Arrays.asList;
 public class CustomerService implements ICustomerService {
     private static List<Customer> customers;
     private static long autoIncreaseId = 0;
-    private static SessionFactory sessionFactory;
-    private static EntityManager entityManager;
 
     static {
         customers = asList(
@@ -27,16 +21,7 @@ public class CustomerService implements ICustomerService {
                 new Customer(autoIncreaseId++, "Dang Xuan Hoa", "hoa.dang@codegym.vn", "Da Nang")
         );
     }
-    static {
-        try {
-             sessionFactory = new Configuration()
-                    .configure("hibernate.conf.xml")
-                    .buildSessionFactory();
-            entityManager = sessionFactory.createEntityManager();
-        } catch (HibernateException e) {
-            e.printStackTrace();
-        }
-    }
+
     @Override
     public List<Customer> findAll() {
         return new ArrayList<>(customers);
@@ -44,7 +29,7 @@ public class CustomerService implements ICustomerService {
 
     @Override
     public Customer findOne(Long id) {
-        return  customers.stream()
+        return customers.stream()
                 .filter(c -> c.getId().equals(id))
                 .findFirst()
                 .orElse(null);
@@ -52,7 +37,7 @@ public class CustomerService implements ICustomerService {
 
     @Override
     public Customer save(Customer customer) {
-        return  customer.getId() == null ? persist(customer) : merge(customer);
+        return customer.getId() == null ? persist(customer) : merge(customer);
     }
 
     @Override
@@ -98,6 +83,7 @@ public class CustomerService implements ICustomerService {
     public void deleteAll() {
         customers = new ArrayList<>();
     }
+
     private Customer persist(Customer customer) {
         Customer clone = customer.clone();
         clone.setId(autoIncreaseId++);

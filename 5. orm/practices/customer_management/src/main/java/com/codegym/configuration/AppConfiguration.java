@@ -15,14 +15,16 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 
 @EnableWebMvc
-@ComponentScan("com.codegym.controllers")
+@ComponentScan("com.codegym")
 @Configuration
 public class AppConfiguration implements WebMvcConfigurer, ApplicationContextAware {
     private ApplicationContext appContext;
+
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        appContext= applicationContext;
+        appContext = applicationContext;
     }
+
     @Bean
     public ThymeleafViewResolver viewResolver() {
         ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
@@ -45,5 +47,9 @@ public class AppConfiguration implements WebMvcConfigurer, ApplicationContextAwa
         templateResolver.setSuffix(".html");
         templateResolver.setTemplateMode(TemplateMode.HTML);
         return templateResolver;
+    }
+    @Bean
+    public CustomerService customerService() {
+        return new CustomerService();
     }
 }

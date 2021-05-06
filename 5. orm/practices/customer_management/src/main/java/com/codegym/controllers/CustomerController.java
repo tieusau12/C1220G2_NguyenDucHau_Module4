@@ -1,7 +1,7 @@
 package com.codegym.controllers;
 
 import com.codegym.model.Customer;
-import com.codegym.service.CustomerService;
+import com.codegym.service.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,13 +16,13 @@ import java.util.List;
 @RequestMapping("customers")
 public class CustomerController {
     @Autowired
-    private CustomerService customerService;
+    private ICustomerService customerService;
 
     @GetMapping
     public ModelAndView showList() {
         ModelAndView modelAndView = new ModelAndView("/list");
         List<Customer> customers = customerService.findAll();
-        modelAndView.addObject("customer", customers);
+        modelAndView.addObject("customers", customers);
         return modelAndView;
     }
 

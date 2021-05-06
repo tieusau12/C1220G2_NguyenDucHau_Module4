@@ -3,8 +3,10 @@ package com.codegym.cms.service;
 import com.codegym.cms.model.Customer;
 import com.codegym.cms.repository.ICustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 
 public class CustomerService implements ICustomerService {
     @Autowired

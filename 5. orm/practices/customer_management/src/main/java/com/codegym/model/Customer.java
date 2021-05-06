@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table
-public class Customer implements Cloneable{
+public class Customer implements Cloneable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -13,6 +13,12 @@ public class Customer implements Cloneable{
     private String address;
 
     public Customer() {
+    }
+
+    public Customer(String name, String email, String address) {
+        this.name = name;
+        this.email = email;
+        this.address = address;
     }
 
     public Customer(Long id, String name, String email, String address) {
@@ -53,6 +59,7 @@ public class Customer implements Cloneable{
     public void setAddress(String address) {
         this.address = address;
     }
+
     @Override
     public Customer clone() {
         Customer customer = new Customer();
