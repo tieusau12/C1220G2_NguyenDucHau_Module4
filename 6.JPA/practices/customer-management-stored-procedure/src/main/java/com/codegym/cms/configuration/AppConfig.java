@@ -1,5 +1,9 @@
 package com.codegym.cms.configuration;
 
+import com.codegym.cms.repository.CustomerRepository;
+import com.codegym.cms.repository.ICustomerRepository;
+import com.codegym.cms.service.CustomerService;
+import com.codegym.cms.service.ICustomerService;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
@@ -89,7 +93,7 @@ public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/cms");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/spring_data_jpa");
         dataSource.setUsername("root");
         dataSource.setPassword("hauhien1");
         return dataSource;
@@ -109,13 +113,13 @@ public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
         return properties;
     }
 
-//    @Bean
-//    public ICustomerRepository customerRepository() {
-//        return new CustomerRepository();
-//    }
-//
-//    @Bean
-//    public ICustomerService customerService() {
-//        return new CustomerService();
-//    }
+    @Bean
+    public ICustomerRepository customerRepository() {
+        return new CustomerRepository();
+    }
+
+    @Bean
+    public ICustomerService customerService() {
+        return new CustomerService();
+    }
 }
