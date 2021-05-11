@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="48086103-c61a-45d1-bcbf-9f32a82400ad" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codegym/demo/DemoApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codegym/demo/controller/CustomerController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codegym/demo/controller/ProvinceController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codegym/demo/model/Customer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codegym/demo/model/Province.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codegym/demo/repository/ICustomerRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codegym/demo/repository/IProvinceRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codegym/demo/service/CustomerService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codegym/demo/service/ICustomerService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codegym/demo/service/IGeneralService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codegym/demo/service/IProvinceService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codegym/demo/service/ProvinceService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/create.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/delete.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/edit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/error.404.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/province/create.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/province/delete.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/province/edit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/province/list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/view.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/codegym/demo/DemoApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/config-20200826T145457Z-001.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/config-20200826T145457Z-001/config/html-thymeleaf/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/config-20200826T145457Z-001/config/html-thymeleaf/java/AppConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/config-20200826T145457Z-001/config/html-thymeleaf/java/AppInitializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/config-20200826T145457Z-001/config/html-thymeleaf/xml/applicationContext.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/config-20200826T145457Z-001/config/html-thymeleaf/xml/dispatcher-servlet.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/config-20200826T145457Z-001/config/html-thymeleaf/xml/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/config-20200826T145457Z-001/config/jsp/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/config-20200826T145457Z-001/config/jsp/java/AppConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/config-20200826T145457Z-001/config/jsp/java/AppInitializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/config-20200826T145457Z-001/config/jsp/xml/applicationContext.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/config-20200826T145457Z-001/config/jsp/xml/dispatcher-servlet.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/config-20200826T145457Z-001/config/jsp/xml/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/interface-spring-data-jpa.png" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1sCU5OhtC5bmGIe3rsVd8ZPGCoA" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/static" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\C1220G2_NguyenDucHau_Module4\7.spring_data_repository\practices\src\main\resources\templates" />
+      <recent name="E:\C1220G2_NguyenDucHau_Module4\7.spring_data_repository\practices\src\main\resources\templates\customer" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\C1220G2_NguyenDucHau_Module4\7.spring_data_repository\practices\src\main\resources\static" />
+      <recent name="E:\C1220G2_NguyenDucHau_Module4\7.spring_data_repository\practices\src\main\resources\templates\customer" />
+      <recent name="E:\C1220G2_NguyenDucHau_Module4\7.spring_data_repository\practices\src\main\resources\templates" />
+      <recent name="E:\C1220G2_NguyenDucHau_Module4\7.spring_data_repository\practices\src\main\java\com\codegym\demo" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="DemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="demo.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.codegym.demo.DemoApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="48086103-c61a-45d1-bcbf-9f32a82400ad" name="Default Changelist" comment="" />
+      <created>1620375880353</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1620375880353</updated>
+      <workItem from="1620375886194" duration="6941000" />
+      <workItem from="1620450226419" duration="14000" />
+      <workItem from="1620461585140" duration="599000" />
+      <workItem from="1620525821860" duration="5850000" />
+      <workItem from="1620608684787" duration="5405000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="765" y="223" key="#com.intellij.ide.util.MemberChooser" timestamp="1620612112910">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="765" y="223" key="#com.intellij.ide.util.MemberChooser/-1366.0.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1620612112910" />
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1620377916531">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1366.0.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1620377916531" />
+    <state x="690" y="267" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1620376696307">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="267" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/-1366.0.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1620376696307" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1620615100132">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/-1366.0.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1620615100132" />
+    <state width="1877" height="411" key="GridCell.Tab.0.bottom" timestamp="1620615118173">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="411" key="GridCell.Tab.0.bottom/-1366.0.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1620615118173" />
+    <state width="1877" height="411" key="GridCell.Tab.0.center" timestamp="1620615118173">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="411" key="GridCell.Tab.0.center/-1366.0.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1620615118173" />
+    <state width="1877" height="411" key="GridCell.Tab.0.left" timestamp="1620615118173">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="411" key="GridCell.Tab.0.left/-1366.0.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1620615118173" />
+    <state width="1877" height="411" key="GridCell.Tab.0.right" timestamp="1620615118173">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="411" key="GridCell.Tab.0.right/-1366.0.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1620615118173" />
+    <state width="1877" height="411" key="GridCell.Tab.1.bottom" timestamp="1620615118174">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="411" key="GridCell.Tab.1.bottom/-1366.0.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1620615118174" />
+    <state width="1877" height="411" key="GridCell.Tab.1.center" timestamp="1620615118173">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="411" key="GridCell.Tab.1.center/-1366.0.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1620615118173" />
+    <state width="1877" height="411" key="GridCell.Tab.1.left" timestamp="1620615118173">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="411" key="GridCell.Tab.1.left/-1366.0.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1620615118173" />
+    <state width="1877" height="411" key="GridCell.Tab.1.right" timestamp="1620615118173">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="411" key="GridCell.Tab.1.right/-1366.0.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1620615118173" />
+    <state x="461" y="165" key="SettingsEditor" timestamp="1620381325969">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="165" key="SettingsEditor/-1366.0.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1620381325969" />
+    <state x="342" y="95" key="new project wizard" timestamp="1620615117142">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="342" y="95" key="new project wizard/-1366.0.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1620615117142" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1620529558515">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/-1366.0.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1620529558515" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1620377834705">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/-1366.0.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1620377834705" />
+  </component>
+</project>

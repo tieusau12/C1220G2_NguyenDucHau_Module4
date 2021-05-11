@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="37e42a6b-e4a2-44a2-ac5a-dd075629c8e8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../practices/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../practices/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../practices/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../practices/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../practices/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../practices/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../practices/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../practices/src/main/java/com/codegym/demo/DemoApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../practices/src/main/java/com/codegym/demo/controller/CustomerController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../practices/src/main/java/com/codegym/demo/controller/ProvinceController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../practices/src/main/java/com/codegym/demo/model/Customer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../practices/src/main/java/com/codegym/demo/model/Province.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../practices/src/main/java/com/codegym/demo/repository/ICustomerRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../practices/src/main/java/com/codegym/demo/repository/IProvinceRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../practices/src/main/java/com/codegym/demo/service/CustomerService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../practices/src/main/java/com/codegym/demo/service/ICustomerService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../practices/src/main/java/com/codegym/demo/service/IGeneralService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../practices/src/main/java/com/codegym/demo/service/IProvinceService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../practices/src/main/java/com/codegym/demo/service/ProvinceService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../practices/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../practices/src/main/resources/templates/create.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../practices/src/main/resources/templates/delete.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../practices/src/main/resources/templates/edit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../practices/src/main/resources/templates/error.404.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../practices/src/main/resources/templates/layout.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../practices/src/main/resources/templates/list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../practices/src/main/resources/templates/province/create.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../practices/src/main/resources/templates/province/delete.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../practices/src/main/resources/templates/province/edit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../practices/src/main/resources/templates/province/list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../practices/src/main/resources/templates/view.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../practices/src/test/java/com/codegym/demo/DemoApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/config-20200826T145457Z-001.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/config-20200826T145457Z-001/config/html-thymeleaf/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/config-20200826T145457Z-001/config/html-thymeleaf/java/AppConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/config-20200826T145457Z-001/config/html-thymeleaf/java/AppInitializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/config-20200826T145457Z-001/config/html-thymeleaf/xml/applicationContext.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/config-20200826T145457Z-001/config/html-thymeleaf/xml/dispatcher-servlet.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/config-20200826T145457Z-001/config/html-thymeleaf/xml/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/config-20200826T145457Z-001/config/jsp/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/config-20200826T145457Z-001/config/jsp/java/AppConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/config-20200826T145457Z-001/config/jsp/java/AppInitializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/config-20200826T145457Z-001/config/jsp/xml/applicationContext.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/config-20200826T145457Z-001/config/jsp/xml/dispatcher-servlet.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/config-20200826T145457Z-001/config/jsp/xml/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/interface-spring-data-jpa.png" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1sKNMVGXxnczgntPuMGEIhdHBzY" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="37e42a6b-e4a2-44a2-ac5a-dd075629c8e8" name="Default Changelist" comment="" />
+      <created>1620617272077</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1620617272077</updated>
+      <workItem from="1620617273560" duration="60000" />
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="739" y="261" key="FileChooserDialogImpl" timestamp="1620617314298">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="739" y="261" key="FileChooserDialogImpl/-1366.0.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1620617314298" />
+    <state x="342" y="95" key="new project wizard" timestamp="1620617332866">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="342" y="95" key="new project wizard/-1366.0.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1620617332866" />
+  </component>
+</project>
