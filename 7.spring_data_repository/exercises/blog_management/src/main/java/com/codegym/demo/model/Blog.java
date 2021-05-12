@@ -9,7 +9,7 @@ public class Blog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private  String blogName;
+    private String blogName;
     private String content;
 
     @ManyToOne

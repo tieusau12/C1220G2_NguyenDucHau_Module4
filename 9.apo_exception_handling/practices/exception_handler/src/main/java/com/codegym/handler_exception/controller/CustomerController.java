@@ -4,6 +4,7 @@ import com.codegym.handler_exception.model.Customer;
 import com.codegym.handler_exception.model.Province;
 import com.codegym.handler_exception.service.ICustomerService;
 import com.codegym.handler_exception.service.IProvinceService;
+import com.codegym.handler_exception.service.exception.DuplicateEmailException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -20,7 +21,8 @@ public class CustomerController {
     @Autowired
     private ICustomerService customerService;
     @Autowired
-    private IProvinceService  provinceService;
+    private IProvinceService provinceService;
+
     @ModelAttribute("provinces")
     public Iterable<Province> allProvinces() {
         return provinceService.findAll();
@@ -43,13 +45,29 @@ public class CustomerController {
         return modelAndView;
     }
 
+    // su dung try catch
+//    @PostMapping
+//    public ModelAndView updateCustomer(Customer customer) {
+//        try {
+//            customerService.save(customer);
+//            return new ModelAndView("redirect:/customers");
+//        } catch (DuplicateEmailException e) {
+//            return new ModelAndView("/inputs_not_acceptable");
+//        }
+//    }
     @PostMapping
-    public ModelAndView updateCustomer(Customer customer) {
+    public ModelAndView updateCustomer(Customer customer) throws DuplicateEmailException {
         customerService.save(customer);
         return new ModelAndView("redirect:/customers");
     }
 
-    private Page<Customer> getPage(Pageable pageInfo) throws Exception {
+    @ExceptionHandler(DuplicateEmailException.class)
+    public ModelAndView showInputNotAcceptable() {
+        return new ModelAndView("/inputs_not_acceptable");
+    }
+
+
+    private Page<Customer> getPage(Pageable pageInfo) {
         return customerService.findAll(pageInfo);
     }
 

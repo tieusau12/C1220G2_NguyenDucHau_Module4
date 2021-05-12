@@ -3,7 +3,9 @@ package com.codegym.handler_exception.service.impl;
 import com.codegym.handler_exception.model.Customer;
 import com.codegym.handler_exception.repository.ICustomerRepository;
 import com.codegym.handler_exception.service.ICustomerService;
+import com.codegym.handler_exception.service.exception.DuplicateEmailException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -24,8 +26,7 @@ public class CustomerServiceImpl implements ICustomerService {
     }
 
     @Override
-    public Page<Customer> findAll(Pageable pageInfo) throws Exception {
-        if (true) throw new Exception("a dummy exception");
+    public Page<Customer> findAll(Pageable pageInfo)  {
         return customerRepository.findAll(pageInfo);
     }
 
@@ -48,8 +49,13 @@ public class CustomerServiceImpl implements ICustomerService {
     }
 
     @Override
-    public Customer save(Customer customer) {
-        return customerRepository.save(customer);
+    public Customer save(Customer customer) throws DuplicateEmailException {
+        try{
+            return customerRepository.save(customer);
+        } catch (DataIntegrityViolationException e){
+            throw  new DuplicateEmailException();
+        }
+
     }
 
     @Override

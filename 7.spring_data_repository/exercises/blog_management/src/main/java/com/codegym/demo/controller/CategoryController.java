@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class CategoryController {
     @Autowired
-    ICategoryService categoryService;
+   private ICategoryService categoryService;
     @Autowired
-    BlogService blogService;
+    private BlogService blogService;
 
     @ModelAttribute("categories")
     public Iterable<Category> categories() {

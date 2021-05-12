@@ -18,19 +18,24 @@ import java.util.List;
 @Controller
 public class BlogController {
     @Autowired
-    BlogService blogService;
+    private BlogService blogService;
     @Autowired
-    ICategoryService categoryService;
+    private ICategoryService categoryService;
 
     @ModelAttribute("categories")
-    public Iterable<Category> categories(){
+    public Iterable<Category> categories() {
         return categoryService.findAll();
     }
 
     @GetMapping
     public ModelAndView showPage(Pageable pageable) {
         Page<Blog> blogList = blogService.findAll(pageable);
-        return new ModelAndView("home", "blogList", blogList);
+        if (blogList!=null){
+            return new ModelAndView("home", "blogList", blogList);
+        }else{
+            return new ModelAndView("error.404");
+        }
+
     }
 
     @GetMapping("/create")
@@ -49,7 +54,12 @@ public class BlogController {
     @GetMapping("/{id}/delete")
     public ModelAndView showDeleteBlog(@PathVariable int id) {
         Blog blog = blogService.findById(id);
-        return new ModelAndView("/blog/delete", "blog", blog);
+        if (blog!= null){
+            return new ModelAndView("/blog/delete", "blog", blog);
+        }else {
+            return new ModelAndView("error.404");
+        }
+
     }
 
     @PostMapping("/delete")
