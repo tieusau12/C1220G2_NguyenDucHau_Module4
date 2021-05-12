@@ -33,14 +33,9 @@ public class BlogServiceImpl implements  BlogService{
         blogRepository.deleteById(id);
     }
 
-
     @Override
     public Iterable<Blog> findAllByCategory(Category category) {
         return blogRepository.findAllByCategory(category);
     }
 
-    @Override
-    public Blog findByName(String name) {
-        return blogRepository.findByName(name);
-    }
 }

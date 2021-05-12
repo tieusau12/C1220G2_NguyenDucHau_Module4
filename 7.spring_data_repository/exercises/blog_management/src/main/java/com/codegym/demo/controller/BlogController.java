@@ -1,14 +1,15 @@
 package com.codegym.demo.controller;
 
 import com.codegym.demo.model.Blog;
+import com.codegym.demo.model.Category;
 import com.codegym.demo.service.BlogService;
+import com.codegym.demo.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -18,10 +19,17 @@ import java.util.List;
 public class BlogController {
     @Autowired
     BlogService blogService;
+    @Autowired
+    ICategoryService categoryService;
+
+    @ModelAttribute("categories")
+    public Iterable<Category> categories(){
+        return categoryService.findAll();
+    }
 
     @GetMapping
-    public ModelAndView showPage() {
-        List<Blog> blogList = blogService.findAll();
+    public ModelAndView showPage(Pageable pageable) {
+        Page<Blog> blogList = blogService.findAll(pageable);
         return new ModelAndView("home", "blogList", blogList);
     }
 

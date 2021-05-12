@@ -26,13 +26,13 @@ public class CategoryController {
     @GetMapping("/create/category")
     public String showPage(Model model) {
         model.addAttribute("category", new Category());
-        return "category/create";
+        return "/category/create";
     }
 
     @PostMapping("/create/category")
     public String createCategory(Category category) {
         categoryService.saveCategory(category);
-        return "redirect:/";
+        return "/category/create";
     }
 
     @GetMapping("/blogOfCategories/{id}")
@@ -40,6 +40,6 @@ public class CategoryController {
         Category category = categoryService.findById(id);
         model.addAttribute("category", category);
         model.addAttribute("blogs", blogService.findAllByCategory(category));
-        return "category/view";
+        return "/category/view";
     }
 }

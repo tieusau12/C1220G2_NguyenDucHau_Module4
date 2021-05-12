@@ -13,5 +13,4 @@ public interface BlogService {
     void deleteBlogById(int id);
     Blog findById(Integer id);
     Iterable<Blog> findAllByCategory(Category category);
-    Blog findByName(String name);
 }

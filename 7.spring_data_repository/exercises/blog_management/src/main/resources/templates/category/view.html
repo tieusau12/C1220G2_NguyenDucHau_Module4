@@ -1,10 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
 </head>
 <body>
-
+<h3>View Category</h3>
+<p>
+    <button class="button btn-outline-secondary">
+        <a th:href="@{/}">
+            Back to menu
+        </a>
+    </button>
+</p>
+<table id="blog">
+    <tr>
+        <th>Name</th>
+        <th>Read</th>
+    </tr>
+    <tr>
+    <tr th:each="blog : ${blogs}">
+        <td th:text="${blog.blogName}"></td>
+        <td><a class="btn btn-primary"
+               th:href="@{/{id}/read(id=${blog.getId()})}"
+               role="button" style="margin-left: 20%">Read</a></td>
+    </tr>
+</table>
+<footer th:replace="/layout :: footer"></footer>
 </body>
 </html>

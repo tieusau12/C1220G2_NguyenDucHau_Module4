@@ -8,11 +8,11 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
-public class Appconfig implements WebMvcConfigurer {
+public class AppConfig implements WebMvcConfigurer {
     @Bean
     public MessageSource messageSource(){
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
-        messageSource.setBasename("classpath: validation-message");
+        messageSource.setBasename("classpath:validation-message");
         return messageSource;
     }
 

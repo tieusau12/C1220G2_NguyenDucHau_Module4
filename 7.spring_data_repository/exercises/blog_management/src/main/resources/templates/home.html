@@ -10,6 +10,22 @@
         </a>
     </button>
 </p>
+<p>
+    <button  class="button btn-outline-primary">
+        <a th:href="@{create/category}">
+            Add new Category
+        </a>
+    </button>
+</p>
+<p>
+    <button  class="button btn-outline-primary">View Category
+        <a th:each="category : ${categories}"  th:href="@{/blogOfCategories/{id}(id=${category.getId()})}">
+            <select >
+                <option th:value="${category.id}" th:text="${category.name}"></option>
+            </select>
+        </a>
+    </button>
+</p>
 <table id="blog">
     <thead>
     <tr>

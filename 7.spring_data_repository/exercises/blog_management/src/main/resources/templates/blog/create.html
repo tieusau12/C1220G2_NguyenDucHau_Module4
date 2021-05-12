@@ -26,6 +26,14 @@
             <label> Content </label>
             <textarea th:field="*{content}"> </textarea>
         </div>
+        <div>
+
+            <label>Category:</label>
+            <select th:field="*{category}">
+                <option th:each="category : ${categories}" th:value="${category.id}"
+                        th:text="${category.name}"></option>
+            </select>
+        </div>
         <input type="submit" value="Save"/>
     </form>
 </div>

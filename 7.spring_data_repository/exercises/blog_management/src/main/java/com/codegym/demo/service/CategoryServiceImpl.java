@@ -4,6 +4,8 @@ import com.codegym.demo.model.Blog;
 import com.codegym.demo.model.Category;
 import com.codegym.demo.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,5 +32,10 @@ public class CategoryServiceImpl implements ICategoryService {
     @Override
     public void deleteCategoryById(int id) {
         categoryRepository.deleteById(id);
+    }
+
+    @Override
+    public Page<Category> findAll(Pageable pageable) {
+        return categoryRepository.findAll(pageable);
     }
 }
