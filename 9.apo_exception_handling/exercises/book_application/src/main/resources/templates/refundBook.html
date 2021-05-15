@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Refund Book</h3>
+<h5 th:text="${message}" style="color: red"></h5>
+<div id="form">
+    <form th:action="@{/refundBook}"
+          method="POST" novalidate="novalidate">
+        <div>
+            <label>Rent code:</label>
+            <input type="number" name="idRenter" th:value="${idRenter}"/>
+        </div>
+        <input type="submit" value="Save"/>
+    </form>
+</div>
+</body>
+</html>

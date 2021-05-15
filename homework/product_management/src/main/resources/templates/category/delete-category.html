@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout::head}">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div th:replace="~{layout::menu}"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <h3 style="color: red">Do you want to Delete Category?</h3>
+        </div>
+    </div>
+    <div class="col-12">
+        <form th:action="@{/category/delete}" method="post" th:object="${category}">
+            <div class="form-group">
+                <input th:field="*{id}" hidden>
+                <label for="name">Name</label>
+                <input id="name" th:field="*{name}" readonly>
+            </div>
+            <div>
+                <button class="btn btn-danger" type="submit" name="submit" value="Delete">Delete</button>
+                <button class="btn btn-primary" type="submit" name="submit">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="row">
+        <div class="col-12 text-center">
+            <div th:replace="~{layout::footer}"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

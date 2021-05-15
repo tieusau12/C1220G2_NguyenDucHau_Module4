@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout::header}">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div th:replace="~{layout::menu}"></div>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <th:block th:if="${message}">
+            <h3 style="color: red" th:text="${message}"></h3>
+        </th:block>
+    </div>
+    <div class="col-12">
+        <form th:action="@{/category/create}" th:object="${category}" method="post">
+            <div class="form-group">
+                <label for="pn">Name :</label>
+                <input type="text" class="form-control" id="pn" th:field="*{name}">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary ml-1" type="submit">Create</button>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary ml-1">
+                    <a th:href="@{/category}" class="text-white">Back to category's list</a>
+                </button>
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <div class="col-12 text-center">
+            <div th:replace="~{layout::footer}"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

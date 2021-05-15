@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3 style="text-align: center">Book Information</h3>
+<h2 th:text="${book.nameOfBook}" style="text-align: center"></h2>
+
+<a class="btn btn-primary"
+   th:href="@{/{id}/rented(id=${book.idBook})}"
+   role="button" style="margin-left: 43%;margin-top: 2%">Rent Book</a>
+
+<a class="btn btn-primary"
+   href="/"
+   role="button" style="margin-left: 2%;margin-top: 2%">Cancel</a>
+
+</body>
+</html>

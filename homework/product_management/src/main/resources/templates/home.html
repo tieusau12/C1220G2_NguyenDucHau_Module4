@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout::header}"></head>
+<body>
+<div class="container-fluid">
+    <div class="col-12">
+        <h2>Product List</h2>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div th:replace="~{layout::menu}"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <button class="btn btn-primary ">
+                <a th:href="@{/product/create}" class="text-white">Create new product</a>
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table table-bordered" id="home">
+            <thead>
+            <tr>
+                <th>Product's name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th class="text-center" colspan="3">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="product : ${products}">
+                <td th:text="${product.name}"></td>
+                <td th:text="${product.category.name}"></td>
+                <td th:text="${product.price}"></td>
+                <td>
+                    <a th:href="@{/product/{id}/edit(id=${product.id})}">Edit</a>
+                </td>
+                <td>
+                    <a th:href="@{/product/{id}/delete(id=${product.id})}">Delete</a>
+                </td>
+                <td>
+                    <a th:href="@{/product/{id}/view(id=${product.id})}">View </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <div class="col-12 text-right">
+            <a th:href="@{'/product' (page=${products.number - 1})}" th:if="${products.hasPrevious()}">Previous</a>
+            <span th:text="${products.number + 1}"></span>/<span th:text="${products.totalPages}"></span>
+            <a th:href="@{'/product' (page=${products.number + 1})}" th:if="${products.hasNext()}">Next</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 text-center">
+            <div th:replace="~{layout::footer}"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

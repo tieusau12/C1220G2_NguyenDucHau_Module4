@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout::header}">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div th:replace="~{layout::menu}"></div>
+        </div>
+    </div>
+    <div class="col-12">
+        <button class="btn btn-primary ml-1">
+            <a th:href="@{/product}" class="text-white">Back to product's list</a>
+        </button>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <button class="btn btn-primary ml-1">
+                <a th:href="@{/category/create-category}" class="text-white">Create new category</a>
+            </button>
+        </div>
+    </div>
+    <div class="col-12">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th scope="col">STT</th>
+                <th scope="col">Name</th>
+                <th scope="col">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="category,p : ${category}">
+                <td th:text="${p.count}"></td>
+                <td th:text="${category.name}"></td>
+                <td>
+                    <a th:href="@{/category/{id}/edit(id=${category.id})}">Edit |</a>
+                    <a th:href="@{/category/{id}/delete(id=${category.id})}">Delete |</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="row">
+        <div class="col-12 text-center">
+            <div th:replace="~{layout::footer}"></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
