@@ -21,6 +21,11 @@ public class OrderProductDetail {
     public OrderProductDetail() {
     }
 
+    public OrderProductDetail(Product product, OrderProduct orderProduct) {
+        this.product = product;
+        this.orderProduct = orderProduct;
+    }
+
     public Integer getIdOrderProductDetail() {
         return idOrderProductDetail;
     }

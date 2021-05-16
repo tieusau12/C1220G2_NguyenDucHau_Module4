@@ -1,6 +1,9 @@
 package com.codegym.demo.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table
@@ -11,6 +14,10 @@ public class Product {
     private String nameProduct;
     private Integer priceProduct;
     private String imageProduct;
+
+
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    private Set<OrderProductDetail> orderProductDetails = new HashSet<>();
 
     public Product() {
     }
@@ -46,4 +53,23 @@ public class Product {
     public void setImageProduct(String imageProduct) {
         this.imageProduct = imageProduct;
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(idProduct);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || this.getClass() != obj.getClass()) {
+            return false;
+        }
+        Product product = (Product) obj;
+
+        return Objects.equals(idProduct, product.idProduct);
+    }
 }
+

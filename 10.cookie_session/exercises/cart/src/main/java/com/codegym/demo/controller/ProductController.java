@@ -37,7 +37,7 @@ public class ProductController {
     @GetMapping("/{id}/buy")
     public String showProduct(@PathVariable Integer id, Model model){
         model.addAttribute("product",productService.findById(id));
-        return "showproduct";
+        return "showProduct";
     }
 
 }
