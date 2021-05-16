@@ -8,17 +8,17 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private  Integer id;
+    private Integer id;
 
     private String name;
-    private  Double price;
+    private Double price;
 
     @ManyToOne
-    @JoinColumn(name = "category_id",nullable = false,referencedColumnName = "category_id")
+    @JoinColumn(name = "category_id", nullable = false, referencedColumnName = "category_id")
     private Category category;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "product_detail",nullable = false, referencedColumnName = "product_detail_id")
+    @JoinColumn(name = "product_detail", nullable = false, referencedColumnName = "product_detail_id")
     private ProductDetail productDetail;
 
     public Product() {

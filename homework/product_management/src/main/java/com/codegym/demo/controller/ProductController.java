@@ -1,5 +1,6 @@
 package com.codegym.demo.controller;
 
+import com.codegym.demo.model.Cart;
 import com.codegym.demo.model.Category;
 import com.codegym.demo.model.Product;
 import com.codegym.demo.service.ICategoryService;
@@ -14,10 +15,11 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
-import java.util.Optional;
+
 
 @Controller
 @RequestMapping("/product")
+@SessionAttributes("cart")
 public class ProductController {
     @Autowired
     private IProductService productService;
@@ -25,18 +27,21 @@ public class ProductController {
     @Autowired
     private ICategoryService categoryService;
 
+    @ModelAttribute("cart")
+    public Cart setupCart() {
+        return new Cart();
+    }
+
     @ModelAttribute("category")
     public List<Category> categoryList() {
         return categoryService.findAll();
     }
 
     @GetMapping
-    public String showHomePage(@PageableDefault(value = 3) Pageable pageable,
-                               Model model) {
-            model.addAttribute("products", productService.findAll(pageable));
+    public String showHomePage(@PageableDefault(value = 3) Pageable pageable, Model model) {
+        model.addAttribute("products", productService.findAll(pageable));
         return "home";
     }
-
 
     @GetMapping("/create")
     public ModelAndView showCreateProductPage() {
@@ -81,4 +86,5 @@ public class ProductController {
     public ModelAndView showProductInformation(@PathVariable Integer id) {
         return new ModelAndView("/product/view-product", "product", productService.findById(id));
     }
+
 }

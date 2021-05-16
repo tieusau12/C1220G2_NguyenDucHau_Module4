@@ -45,14 +45,15 @@ public class CategoryController {
     }
 
     @GetMapping("/{id}/delete")
-    public ModelAndView showDeleteCategory(@PathVariable Integer id){
-        return new ModelAndView("/category/delete-category","category",categoryService.findById(id));
+    public ModelAndView showDeleteCategory(@PathVariable Integer id) {
+        return new ModelAndView("/category/delete-category", "category", categoryService.findById(id));
     }
+
     @PostMapping("/delete")
-    public String deleteCategory(Category category , RedirectAttributes ra, @RequestParam String submit){
-        if(submit.equals("Delete")){
+    public String deleteCategory(Category category, RedirectAttributes ra, @RequestParam String submit) {
+        if (submit.equals("Delete")) {
             categoryService.deleteById(category.getId());
-            ra.addFlashAttribute("msg","successfully");
+            ra.addFlashAttribute("msg", "successfully");
         }
         return "redirect:";
     }

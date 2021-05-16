@@ -18,13 +18,14 @@
         </button>
     </div>
     <div class="col-12">
-        <table class="table table-bordered" th:object="${product}" >
+        <table class="table table-bordered" th:object="${product}">
             <thead>
             <tr>
-                <th >Name</th>
-                <th >Category</th>
-                <th >Price</th>
-                <th >Action</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Action</th>
             </tr>
             </thead>
             <tbody>
@@ -36,10 +37,18 @@
                 <td th:text="${product.productDetail.description}"></td>
                 <td>
                     <a th:href="@{/product/{id}/edit(id=${product.id})}">Edit |</a>
-                    <a th:href="@{/product/{id}/delete(id=${product.id})}">Delete |</a>
+                    <a th:href="@{/product/{id}/delete(id=${product.id})}">Delete</a>
                 </td>
             </tr>
+            <tr>
+                <th><a th:href="@{/add/__${product.id}__(action='list')}">Add To Cart</a></th>
+            </tr>
             </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <table>
+
         </table>
     </div>
     <div class="row">

@@ -1,4 +1,4 @@
-package com.codegym.demo.service.impl;
+package com.codegym.demo.service.Impl;
 
 import com.codegym.demo.model.Product;
 import com.codegym.demo.repository.IProductRepository;
@@ -8,19 +8,16 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class ProductServiceImpl implements IProductService {
+
     @Autowired
     private IProductRepository productRepository;
 
     @Override
-    public Page<Product> findAll(Pageable pageable) {
-        return productRepository.findAll(pageable);
-    }
-
-    @Override
-    public void deleteProduct(Integer id) {
-        productRepository.deleteById(id);
+    public void createProduct(Product product) {
+        productRepository.save(product);
     }
 
     @Override
@@ -29,12 +26,7 @@ public class ProductServiceImpl implements IProductService {
     }
 
     @Override
-    public void saveProduct(Product product) {
-        productRepository.save(product);
-    }
-
-    @Override
-    public Page<Product> findAllByCategoryName(String name, Pageable pageable) {
-        return productRepository.findAllByCategory_Name(name, pageable);
+    public Page<Product> findAll(Pageable pageable) {
+        return productRepository.findAll(pageable);
     }
 }

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="layout :: head">
+</head>
+<body>
+<h3 style="text-align: center">Book Information</h3>
+<nav th:replace="layout :: nav"></nav>
+<h2 th:text="${product.nameProduct}" style="text-align: center"></h2>
+<h4 th:text="${product.priceProduct}" style="text-align: center"></h4>
+<img th:src="${product.imageProduct}" style="display: block;margin: auto"/>
+
+<a class="btn btn-primary"
+   th:href="@{/{id}/addtocart(id=${product.idProduct})}"
+   role="button" style="margin-left: 43%;margin-top: 2%">Put into orderProductDetail</a>
+
+<a class="btn btn-primary"
+  href="/"
+   role="button" style="margin-left: 2%;margin-top: 2%">Cancel</a>
+<footer th:replace="layout :: footer"></footer>
+</body>
+</html>

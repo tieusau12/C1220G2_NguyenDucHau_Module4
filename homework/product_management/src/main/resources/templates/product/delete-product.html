@@ -13,7 +13,7 @@
             <h3 style="color: red">Do you want to Delete Category?</h3>
         </div>
     </div>
-      <div class="col-12">
+    <div class="col-12">
         <form th:action="@{/product/delete}" th:object="${product}" method="post">
             <div class="form-group">
                 <input th:field="*{id}" hidden>

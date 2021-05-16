@@ -19,7 +19,7 @@
             <h3 style="text-align: center">Edit Product</h3>
         </div>
     </div>
-    <div class="col-12" >
+    <div class="col-12">
         <form th:action="@{/product/edit}" th:object="${product}" method="post">
             <div class="form-group">
                 <input th:field="*{id}" hidden>
