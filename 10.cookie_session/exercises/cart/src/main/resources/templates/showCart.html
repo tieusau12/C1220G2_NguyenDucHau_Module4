@@ -72,24 +72,24 @@
         <td th:text="${cart_item.key.nameProduct}"></td>
         <td th:text="${cart_item.key.priceProduct}"></td>
         <td><img th:src="${cart_item.key.imageProduct}" style="height: 50px;width: 50px"></td>
-        <td>
-            <div class="input-group">
-                <input type="button"
-                       value="-" class="button-minus" data-field="quantity"
-                       th:onclick="|setValue('${cart_item.idOrderProductDetail}','-1'),submitFormUpdate()|">
-                <input type="number" step="1" max="" th:value="${cart_item.value}"
-                       name="quantity" class="quantity-field"
-                       th:onchange="|setValue('${cart_item.idOrderProductDetail}',this.value),submitFormUpdate()|">
-                <input type="button" value="+" class="button-plus" data-field="quantity"
-                       th:onclick="|setValue('${cart_item.idOrderProductDetail}','-2'),submitFormUpdate()|">
-            </div>
-        </td>
-        <td>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-                    th:onclick="|setIdToForm('${cart_item.idOrderProductDetail}')|">
-                Delete
-            </button>
-        </td>
+<!--        <td>-->
+<!--            <div class="input-group">-->
+<!--                <input type="button"-->
+<!--                       value="-" class="button-minus" data-field="quantity"-->
+<!--                       th:onclick="|setValue('${cart_item.idOrderProductDetail}','-1'),submitFormUpdate()|">-->
+<!--                <input type="number" step="1" max="" th:value="${cart_item.value}"-->
+<!--                       name="quantity" class="quantity-field"-->
+<!--                       th:onchange="|setValue('${cart_item.idOrderProductDetail}',this.value),submitFormUpdate()|">-->
+<!--                <input type="button" value="+" class="button-plus" data-field="quantity"-->
+<!--                       th:onclick="|setValue('${cart_item.idOrderProductDetail}','-2'),submitFormUpdate()|">-->
+<!--            </div>-->
+<!--        </td>-->
+<!--        <td>-->
+<!--            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"-->
+<!--                    th:onclick="|setIdToForm('${cart_item.idOrderProductDetail}')|">-->
+<!--                Delete-->
+<!--            </button>-->
+<!--        </td>-->
     </tr>
 </table>
 

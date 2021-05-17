@@ -6,45 +6,44 @@ import java.util.List;
 import java.util.Map;
 
 public class Cart {
-//    private List<OrderProductDetail> orderProductDetails = new ArrayList<>();
-    private Map<Product, Integer> orderProductDetails;
+    private Map<Product, Integer> cart;
 
     public Cart() {
-        this.orderProductDetails = new HashMap<>();
+        this.cart = new HashMap<>();
     }
 
-
     public Map<Product, Integer> getCart() {
-        return orderProductDetails;
+        return cart;
     }
 
     public void setCart(Map<Product, Integer> cart) {
-        this.orderProductDetails = cart;
+        this.cart = cart;
     }
 
-    public void addToCart(Product product){
-        if(orderProductDetails.containsKey(product)){
-            orderProductDetails.replace(product,orderProductDetails.get(product),orderProductDetails.get(product)+1);
-        }else {
-            orderProductDetails.put(product,1);
+    public void addToCart(Product product) {
+        if (cart.containsKey(product)) {
+            cart.replace(product, cart.get(product), cart.get(product) + 1);
+        } else {
+            cart.put(product, 1);
         }
     }
 
-    public void changeQuantity(Product product,Integer quantity){
-        orderProductDetails.replace(product,orderProductDetails.get(product),quantity);
+    public void changeQuantity(Product product, Integer quantity) {
+        cart.replace(product, cart.get(product), quantity);
     }
 
-    public void removeProduct(Product product){
-        orderProductDetails.remove(product);
-    }
-    public Integer getQuantity(Product product){
-        return orderProductDetails.get(product);
+    public void removeProduct(Product product) {
+        cart.remove(product);
     }
 
-    public double getTotalCost(){
-        double totalMoney=0;
-        for (Map.Entry<Product, Integer> entry : orderProductDetails.entrySet()) {
-            totalMoney += entry.getKey().getPriceProduct()*entry.getValue();
+    public Integer getQuantity(Product product) {
+        return cart.get(product);
+    }
+
+    public double getTotalCost() {
+        double totalMoney = 0;
+        for (Map.Entry<Product, Integer> entry : cart.entrySet()) {
+            totalMoney += entry.getKey().getPriceProduct() * entry.getValue();
         }
         return totalMoney;
     }
