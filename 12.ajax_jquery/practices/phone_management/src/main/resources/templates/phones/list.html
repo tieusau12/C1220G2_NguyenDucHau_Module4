@@ -61,13 +61,14 @@
                         <td >${smartphone.producer}</td>
                         <td >${smartphone.model}</td>
                         <td >${smartphone.price}</td>` +
-                                        `<td><a class="deleteSmartphone" href="${smartphone.id}">Delete</a></td>
+                `<td><a class="deleteSmartphone" href="${smartphone.id}">Delete</a></td>
                      </tr>`;
         }
 
         $(document).ready(function () {
             //sư kiện nào thực hiện Ajax
-            $('.deleteSmartphone').click(function (event) {
+            // $('.deleteSmartphone').click(function (event) {
+            $(document).on("click", ".deleteSmartphone", function (event) {
                 //lay du lieu
                 let a = $(this);
                 let smartphoneId = a.attr("href");
