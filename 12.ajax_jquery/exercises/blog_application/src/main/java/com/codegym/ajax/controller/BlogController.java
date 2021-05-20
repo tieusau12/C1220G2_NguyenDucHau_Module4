@@ -33,7 +33,7 @@ public class BlogController {
     @GetMapping("/create")
     public String showCreate(Model model) {
         model.addAttribute("blog", new Blog());
-        return "blog/create";
+        return "blog/createBlog";
     }
 
     @PostMapping("/save")

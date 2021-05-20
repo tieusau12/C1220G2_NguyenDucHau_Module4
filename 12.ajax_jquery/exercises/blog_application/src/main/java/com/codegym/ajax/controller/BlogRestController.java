@@ -19,7 +19,7 @@ public class BlogRestController {
     @Autowired
     private IBlogService blogService;
 
-    @GetMapping("/listBlog/")
+    @GetMapping("/listBlog")
     public ResponseEntity<Page<Blog>> showHome(@PageableDefault(size = 5) Pageable pageable) {
         return new ResponseEntity<>(blogService.findAllBlog(pageable), HttpStatus.OK);
     }

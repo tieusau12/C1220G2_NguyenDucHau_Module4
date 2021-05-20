@@ -27,7 +27,7 @@ public class CategoryController {
     @GetMapping("/create/category")
     public String showPage(Model model) {
         model.addAttribute("category", new Category());
-        return "category/create";
+        return "category/createCategory";
     }
 
     @PostMapping("/create/category")

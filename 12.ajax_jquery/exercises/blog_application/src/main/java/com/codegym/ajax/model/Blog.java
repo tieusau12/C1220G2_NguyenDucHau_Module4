@@ -23,17 +23,15 @@ public class Blog {
     public Blog() {
     }
 
-    public Blog(Integer idBlog, String nameBlog, String contentBlog) {
-        this.idBlog = idBlog;
+    public Blog(String nameBlog, String contentBlog) {
         this.nameBlog = nameBlog;
         this.contentBlog = contentBlog;
     }
 
-    public Blog(Integer idBlog, String nameBlog, String contentBlog, Category category) {
+    public Blog(Integer idBlog, String nameBlog, String contentBlog){
         this.idBlog = idBlog;
         this.nameBlog = nameBlog;
         this.contentBlog = contentBlog;
-        this.category = category;
     }
 
     public Integer getIdBlog() {

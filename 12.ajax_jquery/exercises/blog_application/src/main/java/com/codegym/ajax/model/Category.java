@@ -24,12 +24,6 @@ public class Category {
     public Category() {
     }
 
-    public Category(Integer id, String name, Set<Blog> blogs) {
-        this.id = id;
-        this.name = name;
-        this.blogs = blogs;
-    }
-
     public Integer getId() {
         return id;
     }
