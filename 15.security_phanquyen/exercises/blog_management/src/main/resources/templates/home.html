@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:insert="/layout :: head"></head>
+<body>
+<h3>Blog application</h3>
+<div sec:authorize="isAuthenticated()">
+    Welcome <span sec:authentication="name">UserName</span>
+    <span sec:authentication="principal.authorities">Roles</span>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Logout"/>
+    </form>
+</div>
+<p>
+    <button class="button btn-outline-primary">
+        <a th:href="@{/create}">
+            Add new blog
+        </a>
+    </button>
+</p>
+<p>
+    <button class="button btn-outline-primary">
+        <a th:href="@{create/category}">
+            Add new Category
+        </a>
+    </button>
+</p>
+<p>
+    <button class="button btn-outline-primary">View Category
+        <a th:each="category : ${categories}" th:href="@{/blogOfCategories/{id}(id=${category.getId()})}">
+            <select>
+                <option th:value="${category.id}" th:text="${category.name}"></option>
+            </select>
+        </a>
+    </button>
+</p>
+<table id="blog">
+    <thead>
+    <tr>
+        <th>Serial</th>
+        <th>BlogName</th>
+        <th colspan="2" sec:authorize="hasAnyAuthority('ADMIN','EDITOR')">Action</th>
+        <th sec:authorize="hasAnyAuthority('ADMIN','EDITOR','USER')">View</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="row,rowStat : ${blogList}">
+        <td th:text="${rowStat.count}"></td>
+        <td th:text="${row.blogName}"></td>
+        <td>
+            <a th:href="@{/{id}/edit(id=${row.getId()})}" sec:authorize="hasAnyAuthority('ADMIN','EDITOR')">edit |</a>
+        </td>
+        <td>
+            <a th:href="@{/{id}/delete(id=${row.getId()})}" sec:authorize="hasAnyAuthority('ADMIN')">delete |</a>
+        </td>
+        <td>
+            <a th:href="@{/{id}/view(id=${row.getId()})}">view</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+<footer th:replace="/layout :: footer"></footer>
+</html>
