@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:fragment="head">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.css}">
+    <script
+            src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+            integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+            crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Furama Resort</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto');
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            font-family: 'Roboto';
+            font-size: 20px;
+            color: #222;
+        }
+
+        .navbar {
+            background-color: #ffdb90 !important;
+        }
+        .navbar ul {
+            background-color:  #ffdb90 !important;
+        }
+        .navbar li a {
+            color: black !important;
+        }
+
+        .navbar li a:hover {
+            color: white !important;
+        }
+
+        .carousel-inner img {
+            width: 100%;
+        }
+
+        .carousel-caption {
+            position: absolute;
+            top: 30%;
+
+        }
+
+        .carousel-caption h1 {
+            font-size: 300%;
+            text-transform: uppercase;
+            text-shadow: 5px 5px 15px #000;
+        }
+
+        .carousel-caption h3 {
+            text-transform: uppercase;
+            text-shadow: 5px 5px 15px #000;
+        }
+
+        .btn-primary {
+            background-color: rgb(82, 64, 120);
+            border: 1px solid white;
+        }
+
+        .btn-primary:hover {
+            background-color: rgb(62, 44, 100);
+            border: 1px solid white;
+        }
+
+        /*media query*/
+        @media (max-width: 992px) {
+            .carousel-caption {
+                top: 10%;
+            }
+
+            .carousel-caption h1 {
+                font-size: 250%;
+            }
+
+            .carousel-caption h3 {
+                font-size: 160%;
+            }
+
+            .carousel-caption .btn {
+                font-size: 120%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .carousel-caption {
+                top: 10%;
+
+            }
+
+            .carousel-caption h1 {
+                font-size: 150%;
+            }
+
+            .carousel-caption h3 {
+                font-size: 100%;
+            }
+
+            .carousel-caption .btn {
+                font-size: 60%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .carousel-caption {
+                top: 10%;
+            }
+
+            .carousel-caption h1 {
+                font-size: 100%;
+            }
+
+            .carousel-caption h3 {
+                font-size: 80%;
+            }
+
+            .carousel-caption .btn {
+                font-size: 60%;
+            }
+        }
+
+
+        .social a {
+            font-size: 2rem;
+            padding: 2rem;
+        }
+
+        .padding {
+            padding: 0.5rem;
+        }
+
+        footer {
+            background-color: #d5d5d5;
+        }
+
+        .contact {
+            top: 40%;
+            padding: 3rem;
+        }
+
+        .contact a {
+            text-decoration: none;
+            padding-top: 10px !important;
+        }
+
+        hr {
+            border-top: 1px solid black;
+            width: 75%;
+        }
+    </style>
+</head>
+<body>
+<div th:fragment="navbar">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">Furama</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item" sec:authorize="isAnonymous()">
+                    <a class="nav-link" href="#">Dịch vụ</a>
+                </li>
+                <li class="nav-item dropdown" sec:authorize="isAnonymous()">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCustomer" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Khách Hàng
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" th:href="@{/customer-create}" sec:authorize="isAuthenticated()">Thêm mới</a>
+                        <a class="dropdown-item" th:href="@{/customer-showList}">Danh sách</a>
+
+                    </div>
+                </li>
+                <li class="nav-item dropdown" sec:authorize="isAuthenticated()">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownService" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dịch Vụ
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" th:href="@{/serviceList}">Danh Sách Dịch Vụ</a>
+                        <a class="dropdown-item" href="#">Thêm dịch vụ</a>
+                        <a class="dropdown-item"  th:href="@{/villaCreate}">Villa</a>
+                        <a class="dropdown-item" th:href="@{/houseCreate}">House</a>
+                        <a class="dropdown-item" th:href="@{/roomCreate}">Room</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown" sec:authorize="isAuthenticated()">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownEmployee" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       Nhân Viên
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" th:href="@{/employee-create}">Thêm mới</a>
+                        <a class="dropdown-item" th:href="@{/employee-list}">Danh sách</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown" sec:authorize="isAuthenticated()">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownContract" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Hợp Đồng
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" th:href="@{/contractCreate}">Thêm mới Hợp Đồng</a>
+                        <a class="dropdown-item" th:href="@{/contractdetailCreate}">Thêm mới Hợp Đồng Chi Tiết</a>
+                        <a class="dropdown-item" th:href="@{/contractList}">Danh sách Hợp Đồng</a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="navbar-nav navbar-right">
+                <li sec:authorize="isAnonymous()">
+                    <a th:href="@{/login}" class="login" style="color: #ff9400;font-size: 20px ">Đăng
+                        Nhập</a>
+                </li>
+                <li class="nav-item dropdown" sec:authorize="isAuthenticated()">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLogin" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                       sec:authentication="principal.username">
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <form th:action="@{/logout}" method="post">
+                            <button type="submit">Đăng Xuất</button>
+                        </form>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<div th:fragment="script">
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</div>
+</body>
+</html>

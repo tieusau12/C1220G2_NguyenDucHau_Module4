@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+</head>
+<body>
+<div th:replace="/layout :: navbar"></div>
+<div class="container-fluid border">
+    <h2 class="h2 text-primary mr-lg-auto ">Thêm Mới Nhân Viên</h2>
+    <h4 th:text="${messageDuplicate}" style="color: red"></h4>
+    <div class="card-body">
+        <form class="form" role="form" autocomplete="off" th:action="@{/employee-create}"
+              method="post" th:object="${employee}">
+            <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label">Mã Nhân Viên:</label>
+                <div class="col-lg-9">
+                    <input class="form-control editable" type=text
+                           th:value="${employee.employeeId}"
+                           th:field="*{employeeId}"/>
+                    <div class="alert alert-warning" th:if="${#fields.hasErrors('employeeId')}"
+                         th:errors="*{employeeId}"></div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label form-control-label">Tên Nhân Viên :</label>
+                <div class="col-md-9">
+                    <input class="form-control editable" type="text" th:value="${employee.employeeName}"
+                           th:field="*{employeeName}" placeholder="Enter name"/>
+                    <div class="alert alert-warning" th:if="${#fields.hasErrors('employeeName')}"
+                         th:errors="*{employeeName}"></div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label form-control-label">Giới tính :</label>
+                <div class="form-check col-md-2">
+                    <input class="form-check-input" type="radio" name="gender" id="male" value="male"
+                           th:field="*{employeeGender}" checked/>
+                    <label class="form-check-label" for="male">
+                        Nam
+                    </label>
+                </div>
+                <div class="form-check col-md-2">
+                    <input class="form-check-input" type="radio" name="gender" id="female" th:field="*{employeeGender}"
+                           value="female">
+                    <label class="form-check-label" for="female">
+                        Nữ
+                    </label>
+                </div>
+                <div class="form-check col-md-2">
+                    <input class="form-check-input" type="radio" name="gender" id="other" value="other"
+                           th:field="*{employeeGender}">
+                    <label class="form-check-label" for="other">
+                        Giới tính khác
+                    </label>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label">Ngày sinh:</label>
+                <div class="col-lg-9">
+                    <input class="form-control editable" type="date"
+                           th:value="${employee.employeeBirthDay}"
+                           th:field="*{employeeBirthDay}"/>
+                    <div class="alert alert-warning" th:if="${#fields.hasErrors('employeeBirthDay')}"
+                         th:errors="*{employeeBirthDay}"></div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label">Số CMND :</label>
+                <div class="col-lg-9">
+                    <input class="form-control editable" type="text"
+                           th:value="${employee.employeeIdCard}"
+                           th:field="*{employeeIdCard}"/>
+                    <div class="alert alert-warning" th:if="${#fields.hasErrors('employeeIdCard')}"
+                         th:errors="*{employeeIdCard}"></div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label">Số điện thoại:</label>
+                <div class="col-lg-9">
+                    <input class="form-control editable" type="text"
+                           th:value="${employee.employeePhone}"
+                           th:field="*{employeePhone}"/>
+                    <div class="alert alert-warning" th:if="${#fields.hasErrors('employeePhone')}"
+                         th:errors="*{employeePhone}"></div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label">Lương :</label>
+                <div class="col-lg-9">
+                    <input class="form-control editable" type="text"
+                           th:value="${employee.employeeSalary}"
+                           th:field="*{employeeSalary}"/>
+                    <div class="alert alert-warning" th:if="${#fields.hasErrors('employeeSalary')}"
+                         th:errors="*{employeeSalary}"></div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label">Email đăng ký:</label>
+                <div class="col-lg-9">
+                    <input class="form-control editable" type=text
+                           th:value="${employee.employeeEmail}"
+                           th:field="*{employeeEmail}"/>
+                    <div class="alert alert-warning" th:if="${#fields.hasErrors('employeeEmail')}"
+                         th:errors="*{employeeEmail}"></div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label">Địa chỉ:</label>
+                <div class="col-lg-9">
+                    <input class="form-control editable" type="text"
+                           th:value="${employee.employeeAddress}"
+                           th:field="*{employeeAddress}"/>
+                    <div class="alert alert-warning" th:if="${#fields.hasErrors('employeeAddress')}"
+                         th:errors="*{employeeAddress}"></div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label">Trình Độ:</label>
+                <div class="col-lg-9">
+                    <select th:field="*{education}" name="category"
+                            class="form-control editable">
+                        <option th:each="edu: ${listEducation}"
+                                th:value="${edu.educationId}"
+                                th:text="${edu.educationName}"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label">Chức Vụ :</label>
+                <div class="col-lg-9">
+                    <select th:field="*{position}" name="category"
+                            class="form-control editable">
+                        <option th:each="position : ${listPosition}"
+                                th:value="${position.positionId}"
+                                th:text="${position.positionName}"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label">Bộ Phận :</label>
+                <div class="col-lg-9">
+                    <select th:field="*{division}" name="category"
+                            class="form-control editable">
+                        <option th:each="division : ${listDivision}"
+                                th:value="${division.divisionId}"
+                                th:text="${division.divisionName}"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label"></label>
+                <div class="col-lg-9">
+                    <input type="reset" class="btn btn-secondary" value="Cancel">
+                    <input type="submit" class="btn btn-primary" value="Add">
+                    <!--                    <input type="submit" class="btn btn-info" value="Add and go back to list">-->
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div th:replace="/layout :: script"></div>
+</body>
+</html>

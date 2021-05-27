@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+<body>
+<div th:replace="/layout :: navbar">
+</div>
+<div class="row text-center ">
+    <form th:action="@{/employeeSearch}">
+        <div class="input-group">
+            <div class="form-outline">
+                <input type="search" id="form1" name="nameEmployee" class="form-control" placeholder="Tìm kiếm..."/>
+            </div>
+            <button type="submit" class="btn btn-primary">
+                <i class="material-icons-outlined">
+                    Search
+                </i>
+            </button>
+        </div>
+    </form>
+</div>
+<div class="row">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">STT</th>
+            <th scope="col">Tên Nhân Viên</th>
+            <th scope="col">Ngày Sinh</th>
+            <th scope="col">Giới Tính</th>
+            <th scope="col">Trình Độ</th>
+            <th scope="col">Chức Vụ</th>
+            <th scope="col">Bộ Phận</th>
+            <th scope="col">Chỉnh Sửa</th>
+            <th scope="col">Xoá</th>
+        </tr>
+        </thead>
+        <tbody id="listEmployee">
+        <tr th:each="employee,iState : ${listEmployee}">
+            <td th:text="${iState.count}"></td>
+            <td th:text="${employee.employeeName}"></td>
+            <td th:text="${employee.employeeBirthDay}"></td>
+            <td th:text="${employee.employeeGender}"></td>
+            <td th:text="${employee.education.educationName}"></td>
+            <td th:text="${employee.position.positionName}"></td>
+            <td th:text="${employee.division.divisionName}"></td>
+            <td><a class="btn btn-primary"
+                   th:href="@{/employee-edit/{id}(id=${employee.employeeId})}"
+                   role="button">Chỉnh Sửa</a></td>
+            </td>
+            <td>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                        th:data-thing="${employee.employeeId}" th:data-name="${employee.employeeName}"
+                        onclick="setIdToForm(this.getAttribute('data-thing'),this.getAttribute('data-name'));">
+                    Xoá
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Bạn có muốn xoá <span id="employeeName"></span>?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">
+                        <a onclick="submitFormDelete()"
+                           style="color: white;text-decoration: none">
+                            Đồng Ý</a></button>
+
+                    <button type="button" class="btn btn-secondary"
+                            data-dismiss="modal">
+                        <a style="color: white;text-decoration: none">
+                            Huỷ</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form action="/employee/delete" id="formDelete">
+        <input type="hidden" name="idDelete" id="idBlogHidden"/>
+    </form>
+    <script>
+        function setIdToForm(id, name) {
+            document.getElementById("idBlogHidden").value = id;
+            document.getElementById("employeeName").textContent = name;
+        }
+
+        function submitFormDelete() {
+            document.getElementById("formDelete").submit();
+        }
+    </script>
+    <nav aria-label="...">
+        <ul class="pagination">
+            <li class="page-item">
+                <a class="page-link" th:href="@{'/employeeList'(page=${listEmployee.number - 1})}"
+                   th:if="${listEmployee.hasPrevious()}">Trước</a>
+            </li>
+            <li class="page-item"><a class="page-link" th:text="${listEmployee.number}"
+                                     th:if="${listEmployee.hasPrevious()}"></a></li>
+            <li class="page-item active"><a class="page-link" th:text="${listEmployee.number + 1}"></a></li>
+            <li class="page-item"><a class="page-link" th:text="${listEmployee.number + 2}"
+                                     th:if="${listEmployee.hasNext()}"
+                                     th:href="@{'/employeeList'(page=${listEmployee.number + 1})}"></a></li>
+            <li class="page-item"><a class="page-link" th:href="@{'/employeeList'(page=${listEmployee.number + 1})}"
+                                     th:if="${listEmployee.hasNext()}">Sau</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+<div th:replace="/layout :: script">
+</div>
+</body>
+</html>

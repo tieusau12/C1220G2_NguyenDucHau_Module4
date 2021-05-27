@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+<body>
+<div th:replace="/layout :: navbar">
+</div>
+<div style="margin-left: 35%">
+    <h2 style="margin-left: 40px;color: #0062cc">Thông Tin Khách Hàng</h2>
+    <h4 th:text="${messageDuplicate}" style="color: red"></h4>
+    <form th:action="@{/customer-edit}" method="post" th:object="${customer}">
+        <input type="hidden" th:field="*{customerId}">
+        <table cellpadding="5">
+            <tr>
+                <th>Loại khách:</th>
+                <td>
+                    <select th:field="*{customerType}" class="form-control">
+                        <option th:each="customerType : ${customerTypes}" th:value="${customerType.customerTypeId}"
+                                th:text="${customerType.customerTypeName}"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Mã khách hàng:</th>
+                <td>
+                    <input type="text" class="form-control" th:field="*{customerId}" disabled/>
+                </td>
+            </tr>
+            <tr>
+                <th>Tên khách hàng:</th>
+                <td>
+                    <input type="text" class="form-control" th:field="*{customerName}" size="45"/>
+                    <span th:if="${#fields.hasErrors('customerName')}" th:errors="*{customerName}"
+                          class="text-danger help-block"></span>
+                </td>
+            </tr>
+            <tr>
+                <th>Ngày sinh:</th>
+                <td>
+                    <input type="date" class="form-control" width="200" th:field="*{customerBirthDay}"
+                           style="height: 25px" required/>
+                    <span th:if="${#fields.hasErrors('customerBirthDay')}" th:errors="*{customerBirthDay}"
+                          class="text-danger help-block"></span>
+                </td>
+            </tr>
+            <tr>
+                <th>Giới tính:</th>
+                <td>
+                    <select th:field="*{customerGender}" class="form-control">
+                        <option value="Nam">Nam</option>
+                        <option value="Nữ">Nữ</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Số CMND:</th>
+                <td>
+                    <input type="text" class="form-control" th:field="*{customerIdCard}"/>
+                    <span th:if="${#fields.hasErrors('customerIdCard')}" th:errors="*{customerIdCard}"
+                          class="text-danger help-block"></span>
+                </td>
+            </tr>
+            <tr>
+                <th>Số điện thoại:</th>
+                <td>
+                    <input type="text" class="form-control" th:field="*{customerPhone}"/>
+                    <span th:if="${#fields.hasErrors('customerPhone')}" th:errors="*{customerPhone}"
+                          class="text-danger help-block"></span>
+                </td>
+            </tr>
+            <tr>
+                <th>Email đăng ký:</th>
+                <td>
+                    <input type="text" class="form-control" th:field="*{customerEmail}"/>
+                    <span th:if="${#fields.hasErrors('customerEmail')}" th:errors="*{customerEmail}"
+                          class="text-danger help-block"></span>
+                </td>
+            </tr>
+            <tr>
+                <th>Địa chỉ:</th>
+                <td>
+                    <input type="text" class="form-control" th:field="*{customerAddress}" required/>
+                    <span th:if="${#fields.hasErrors('customerAddress')}" th:errors="*{customerAddress}"
+                          class="text-danger help-block"></span>
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <input type="submit" value="Lưu"/>
+                </td>
+                <td class="text-center">
+                    <a th:href="@{/}">Cancel</a>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<div th:replace="/layout :: script"></div>
+</body>
+</html>
