@@ -176,12 +176,12 @@
                 <li class="nav-item" sec:authorize="isAnonymous()">
                     <a class="nav-link" href="#">Dịch vụ</a>
                 </li>
-                <li class="nav-item dropdown" sec:authorize="isAnonymous()">
+                <li class="nav-item dropdown" sec:authorize="isAuthenticated()">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCustomer" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Khách Hàng
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" th:href="@{/customer-create}" sec:authorize="isAuthenticated()">Thêm mới</a>
+                        <a class="dropdown-item" th:href="@{/customer-create}" sec:authorize="hasAuthority('ADMIn')">Thêm mới</a>
                         <a class="dropdown-item" th:href="@{/customer-showList}">Danh sách</a>
 
                     </div>
@@ -203,7 +203,7 @@
                        Nhân Viên
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" th:href="@{/employee-create}">Thêm mới</a>
+                        <a class="dropdown-item" sec:authorize="hasAuthority('ADMIN')" th:href="@{/employee-create}">Thêm mới</a>
                         <a class="dropdown-item" th:href="@{/employee-list}">Danh sách</a>
                     </div>
                 </li>
@@ -229,6 +229,7 @@
                     </a>
 
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a th:href="@{#}">Thông tin</a>
                         <form th:action="@{/logout}" method="post">
                             <button type="submit">Đăng Xuất</button>
                         </form>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Top 5 Product Price</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.css}">
+
+</head>
+<body>
+<div class="container text-center">
+    <h2>Top 5 Product price</h2>
+    <table border="1" cellpadding="10">
+        <thead class="text-primary">
+        <tr>
+            <th>
+                <a>Product ID</a>
+            </th>
+            <th>
+                <a>Name</a>
+            </th>
+            <th>
+                <a>Brand</a>
+            </th>
+            <th>
+                <a>Made In</a>
+            </th>
+            <th>
+                <a>Price</a>
+            </th>
+            <th>
+                <a>Description</a>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product: ${products}">
+            <td th:text="${product.productId}"></td>
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.brand}"></td>
+            <td th:text="${product.madeIn}"></td>
+            <td th:text="${product.productPrice}"></td>
+            <td th:text="${product.description}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<a th:href="@{/}" class="btn btn-primary">Back Home</a>
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>

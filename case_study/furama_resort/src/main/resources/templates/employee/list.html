@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="/layout :: head">
 <body>
 <div th:replace="/layout :: navbar">
@@ -29,8 +29,10 @@
             <th scope="col">Trình Độ</th>
             <th scope="col">Chức Vụ</th>
             <th scope="col">Bộ Phận</th>
-            <th scope="col">Chỉnh Sửa</th>
-            <th scope="col">Xoá</th>
+            <th scope="col" sec:authorize="hasAuthority('ADMIN')">Chỉnh Sửa</th>
+            <th scope="col" class="text-center" colspan="3" sec:authorize="isAnonymous()">Xem</th>
+            <th scope="col" sec:authorize="isAuthenticated()">Xem</th>
+            <th scope="col" sec:authorize="hasAuthority('ADMIN')">Xoá</th>
         </tr>
         </thead>
         <tbody id="listEmployee">
@@ -44,12 +46,18 @@
             <td th:text="${employee.division.divisionName}"></td>
             <td><a class="btn btn-primary"
                    th:href="@{/employee-edit/{id}(id=${employee.employeeId})}"
-                   role="button">Chỉnh Sửa</a></td>
+                   role="button" sec:authorize="hasAuthority('ADMIN')">Chỉnh Sửa</a>
+            </td>
+            <td>
+                <a class="btn btn-primary center" th:href="@{/employee-view/{id}(id=${employee.employeeId})}" role="button">
+                    Xem
+                </a>
             </td>
             <td>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
                         th:data-thing="${employee.employeeId}" th:data-name="${employee.employeeName}"
-                        onclick="setIdToForm(this.getAttribute('data-thing'),this.getAttribute('data-name'));">
+                        onclick="setIdToForm(this.getAttribute('data-thing'),this.getAttribute('data-name'));"
+                        sec:authorize="hasAuthority('ADMIN')">
                     Xoá
                 </button>
             </td>
@@ -98,7 +106,7 @@
     <nav aria-label="...">
         <ul class="pagination">
             <li class="page-item">
-                <a class="page-link" th:href="@{'/employeeList'(page=${listEmployee.number - 1})}"
+                <a class="page-link" th:href="@{'/employee-list'(page=${listEmployee.number - 1})}"
                    th:if="${listEmployee.hasPrevious()}">Trước</a>
             </li>
             <li class="page-item"><a class="page-link" th:text="${listEmployee.number}"
@@ -106,8 +114,8 @@
             <li class="page-item active"><a class="page-link" th:text="${listEmployee.number + 1}"></a></li>
             <li class="page-item"><a class="page-link" th:text="${listEmployee.number + 2}"
                                      th:if="${listEmployee.hasNext()}"
-                                     th:href="@{'/employeeList'(page=${listEmployee.number + 1})}"></a></li>
-            <li class="page-item"><a class="page-link" th:href="@{'/employeeList'(page=${listEmployee.number + 1})}"
+                                     th:href="@{'/employee-list'(page=${listEmployee.number + 1})}"></a></li>
+            <li class="page-item"><a class="page-link" th:href="@{'/employee-list'(page=${listEmployee.number + 1})}"
                                      th:if="${listEmployee.hasNext()}">Sau</a>
             </li>
         </ul>

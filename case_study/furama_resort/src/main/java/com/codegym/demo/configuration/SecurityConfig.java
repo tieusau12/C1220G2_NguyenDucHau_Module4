@@ -40,19 +40,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("customer-create", "customer-showList", "customer-edit/**", "customer/delete")
-                .access("hasAnyRole('USER','ADMIN')");
         http.csrf().disable().authorizeRequests().antMatchers("/home", "/login").permitAll();
-        http.authorizeRequests().antMatchers("employee-create", "employee-edit/**", "employee-list").access("hasRole('ADMIN')");
-        http.authorizeRequests().and().exceptionHandling().accessDeniedPage("/error.403");
-
-        http.authorizeRequests().and().formLogin()
+        http.authorizeRequests()
+                .antMatchers("/customer-create", "/customer-showList", "/customer-edit/**", "/customer/delete").hasAnyAuthority("USER","ADMIN")
+                .antMatchers("/employee-create", "/employee-edit/**", "/employee-list").hasAuthority("ADMIN")
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
                 .loginPage("/login")
                 .usernameParameter("username")
                 .passwordParameter("password")
                 .defaultSuccessUrl("/")
                 .failureUrl("/login?error=true")
-                .and().logout().logoutUrl("/logout").logoutSuccessUrl("/");
+                .and()
+                .logout().logoutUrl("/logout").permitAll()
+                .and()
+                .exceptionHandling().accessDeniedPage("/403");
+
         http.authorizeRequests().and()
                 .rememberMe().tokenRepository(this.persistentTokenRepository())
                 .tokenValiditySeconds(1 * 24 * 60 * 60);

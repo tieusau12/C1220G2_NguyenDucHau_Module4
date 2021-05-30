@@ -79,6 +79,8 @@ public class CustomerController {
         customerService.saveCustomer(customer);
         return "redirect:/customer-showList";
     }
+
+
     @GetMapping("/customer-view/{id}")
     public String showViewCustomer(Model model, @PathVariable String id) {
         model.addAttribute("customer", customerService.findById(id));

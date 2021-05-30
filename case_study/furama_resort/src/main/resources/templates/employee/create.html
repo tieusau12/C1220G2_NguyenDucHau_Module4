@@ -5,7 +5,7 @@
 <body>
 <div th:replace="/layout :: navbar"></div>
 <div class="container-fluid border">
-    <h2 class="h2 text-primary mr-lg-auto ">Thêm Mới Nhân Viên</h2>
+    <h2 class="h2 text-primary center-pill">Thêm Mới Nhân Viên</h2>
     <h4 th:text="${messageDuplicate}" style="color: red"></h4>
     <div class="card-body">
         <form class="form" role="form" autocomplete="off" th:action="@{/employee-create}"

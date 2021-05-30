@@ -28,6 +28,7 @@
             <th scope="col">Địa chỉ</th>
             <th scope="col" sec:authorize="hasAuthority('ADMIN')">Chỉnh Sửa</th>
             <th scope="col" class="text-center" colspan="3" sec:authorize="isAnonymous()">Xem</th>
+            <th scope="col" sec:authorize="isAuthenticated()">Xem</th>
             <th scope="col" sec:authorize="hasAuthority('ADMIN')">Xoá</th>
         </tr>
         </thead>
@@ -100,7 +101,7 @@
 <nav aria-label="...">
     <ul class="pagination">
         <li class="page-item">
-            <a class="page-link" th:href="@{'/customerShowlist'(page=${customerList.number - 1})}"
+            <a class="page-link" th:href="@{'/customer-showList'(page=${customerList.number - 1})}"
                th:if="${customerList.hasPrevious()}">Trước</a>
         </li>
         <li class="page-item"><a class="page-link" th:text="${customerList.number}"
@@ -109,9 +110,9 @@
         <li class="page-item active"><a class="page-link" th:text="${customerList.number + 1}"></a></li>
         <li class="page-item"><a class="page-link" th:text="${customerList.number + 2}"
                                  th:if="${customerList.hasNext()}"
-                                 th:href="@{'/customerShowlist'(page=${customerList.number + 1})}"></a></li>
+                                 th:href="@{'/customer-showList'(page=${customerList.number + 1})}"></a></li>
         <li class="page-item">
-        <li class="page-item"><a class="page-link" th:href="@{'/customerShowlist'(page=${customerList.number + 1})}"
+        <li class="page-item"><a class="page-link" th:href="@{'/customer-showList'(page=${customerList.number + 1})}"
                                  th:if="${customerList.hasNext()}">Sau</a>
         </li>
     </ul>

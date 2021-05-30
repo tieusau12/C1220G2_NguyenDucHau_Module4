@@ -45,6 +45,7 @@ public class Customer {
 
     @NotEmpty(message = "Không được để trống")
     private String customerAddress;
+
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     List<Contract> contracts;
 

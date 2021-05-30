@@ -6,8 +6,8 @@
 <body>
 <div th:replace="/layout :: navbar">
 </div>
-<div style="margin-left: 25%;margin-top: 5%">
-    <h2 style="margin-left: 40px;color: yellow">Chỉnh sửa thông tin</h2>
+<div style="margin-left: 30%">
+    <h2 style="margin-left: 40px;color: blue">Chỉnh sửa thông tin</h2>
     <h4 th:text="${messageDuplicate}" style="color: red"></h4>
     <form th:action="@{/employee-edit}" method="post" th:object="${employee}">
         <input type="hidden" th:field="*{employeeId}"/>

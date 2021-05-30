@@ -22,7 +22,8 @@
             <div class="form-group row">
                 <label class="col-md-3 col-form-label form-control-label">Tên khách hàng :</label>
                 <div class="col-md-9">
-                    <input class="form-control editable" type="text" th:value="${customer.customerName}"
+                    <input class="form-control editable" type="text"
+                           th:value="${customer.customerName}"
                            th:field="*{customerName}" placeholder="Enter name"/>
                     <div class="alert alert-warning" th:if="${#fields.hasErrors('customerName')}"
                          th:errors="*{customerName}"></div>
@@ -118,7 +119,6 @@
                 <div class="col-lg-9">
                     <input type="reset" class="btn btn-secondary" value="Cancel">
                     <input type="submit" class="btn btn-primary" value="Add">
-                    <!--                    <input type="submit" class="btn btn-info" value="Add and go back to list">-->
                 </div>
             </div>
         </form>

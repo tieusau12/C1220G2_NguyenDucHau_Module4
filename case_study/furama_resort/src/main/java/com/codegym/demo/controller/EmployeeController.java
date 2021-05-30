@@ -52,7 +52,6 @@ public class EmployeeController {
     @GetMapping("/employee-edit/{id}")
     public String showEditEmployee(@PathVariable String id, Model model) {
         model.addAttribute("employee", employeeService.findById(id));
-
         return "employee/edit";
     }
 
@@ -79,6 +78,12 @@ public class EmployeeController {
 
         employeeService.editEmployee(employee);
         return "redirect:/employee-list";
+    }
+
+    @GetMapping("/employee-view/{id}")
+    public String showViewEmployee(@PathVariable String id, Model model) {
+        model.addAttribute("employee", employeeService.findById(id));
+        return "employee/view";
     }
 
     @GetMapping("/employee/delete")

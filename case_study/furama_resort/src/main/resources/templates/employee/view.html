@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="/layout :: head">
+</head>
+<body>
+<div th:replace="/layout :: navbar">
+</div>
+<div style="margin-left: 30%">
+    <h2 style="margin-left: 40px;color: blue">Chỉnh sửa thông tin</h2>
+    <form  th:object="${employee}">
+        <input type="hidden" th:field="*{employeeId}"/>
+        <input type="hidden" th:field="*{furamaUser}"/>
+        <table cellpadding="5">
+            <tr>
+                <th>Mã Nhân Viên:</th>
+                <td>
+                    <input type="text" class="form-control" th:field="*{employeeId}" disabled/>
+                </td>
+            </tr>
+            <tr>
+                <th>Tên Nhân Viên:</th>
+                <td>
+                    <input type="text" class="form-control" th:field="*{employeeName}"/>
+                    <span th:if="${#fields.hasErrors('employeeName')}" th:errors="*{employeeName}"
+                          class="text-danger "></span>
+                </td>
+            </tr>
+            <tr>
+                <th>Ngày sinh:</th>
+                <td>
+                    <input type="date" class="form-control" width="200" th:field="*{employeeBirthDay}"
+                           style="height: 25px" required/>
+                    <span th:if="${#fields.hasErrors('employeeBirthDay')}" th:errors="*{employeeBirthDay}"
+                          class="text-danger "></span>
+                </td>
+            </tr>
+            <tr>
+                <th>Giới tính:</th>
+                <td>
+                    <select th:field="*{employeeGender}" class="form-control">
+                        <option value="Nam">Nam</option>
+                        <option value="Nữ">Nữ</option>
+                        <option value="Other">Giới tính khác</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Số CMND:</th>
+                <td>
+                    <input type="text" class="form-control" th:field="*{employeeIdCard}"/>
+                    <span th:if="${#fields.hasErrors('employeeIdCard')}" th:errors="*{employeeIdCard}"
+                          class="text-danger"></span>
+                </td>
+            </tr>
+            <tr>
+                <th>Lương:</th>
+                <td>
+                    <input type="text" class="form-control" th:field="*{employeeSalary}"/>
+                    <span th:if="${#fields.hasErrors('employeeSalary')}" th:errors="*{employeeSalary}"
+                          class="text-danger "></span>
+                </td>
+            </tr>
+            <tr>
+                <th>Số điện thoại:</th>
+                <td>
+                    <input type="text" class="form-control" th:field="*{employeePhone}"/>
+                    <span th:if="${#fields.hasErrors('employeePhone')}" th:errors="*{employeePhone}"
+                          class="text-danger"></span>
+                </td>
+            </tr>
+            <tr>
+                <th>Email đăng ký:</th>
+                <td>
+                    <input type="text" class="form-control" th:field="*{employeeEmail}"/>
+                    <span th:if="${#fields.hasErrors('employeeEmail')}" th:errors="*{employeeEmail}"
+                          class="text-danger "></span>
+                </td>
+            </tr>
+            <tr>
+                <th>Địa chỉ:</th>
+                <td>
+                    <input type="text" class="form-control" th:field="*{employeeAddress}" required/>
+                    <span th:if="${#fields.hasErrors('employeeAddress')}" th:errors="*{employeeAddress}"
+                          class="text-danger "></span>
+                </td>
+            </tr>
+            <tr>
+                <th>Trình Độ:</th>
+                <td>
+                    <select th:field="*{education}" class="form-control">
+                        <option th:each="education : ${listEducation}" th:value="${education.educationId}"
+                                th:text="${education.educationName}"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Chức Vụ:</th>
+                <td>
+                    <select th:field="*{position}" class="form-control">
+                        <option th:each="position : ${listPosition}" th:value="${position.positionId}"
+                                th:text="${position.positionName}"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Bộ Phận:</th>
+                <td>
+                    <select th:field="*{division}" class="form-control">
+                        <option th:each="division : ${listDivision}" th:value="${division.divisionId}"
+                                th:text="${division.divisionName}"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="text-center btn btn-primary">
+                    <a role="button" th:href="@{/employee-list}">Back</a>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</div>
+</div>
+</div>
+<div th:replace="/layout :: script"></div>
+</body>
+</html>
